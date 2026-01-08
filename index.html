@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaffery's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #05051e;
+            --nav-color: #0e0e3a;
+            --accent-purple: #8a2be2;
+            --text-gray: #b0b0b0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background: radial-gradient(circle at top, #0e0e4a 0%, #05051e 100%);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            height: 70px;
+            background-color: var(--nav-color);
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 50px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .left {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-purple);
+        }
+
+        /* --- Hero Section --- */
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 80vh;
+            padding: 50px 10%;
+        }
+
+        .leftSection {
+            width: 50%;
+            font-size: 2.5rem;
+        }
+
+        .rightSection {
+            width: 40%;
+            text-align: center;
+        }
+
+        .rightSection img {
+            width: 100%;
+            max-width: 400px;
+            filter: drop-shadow(0 0 20px var(--accent-purple));
+        }
+
+        .purple {
+            color: var(--accent-purple);
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: transparent;
+            color: white;
+            border: 2px solid var(--accent-purple);
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: var(--accent-purple);
+            transform: translateY(-3px);
+        }
+
+        /* --- Experience Section (Glassmorphism) --- */
+        .secondSection {
+            padding: 40px 10%;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .exp-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.4s;
+            position: relative;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-purple);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .exp-card img {
+            width: 40px;
+            margin-bottom: 15px;
+        }
+
+        .exp-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .exp-card p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* --- Projects Section --- */
+        .thirdSection {
+            padding: 80px 10%;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: #11113a;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            padding: 40px 20px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            background: #1a1a4a;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #070716;
+            padding: 50px 10% 20px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-content ul {
+            list-style: none;
+        }
+
+        .footer-content li {
+            color: var(--text-gray);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-rights {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            border-top: 1px solid #1e1e3a;
+            padding-top: 20px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 800px) {
+            .firstSection {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .leftSection {
+                width: 100%;
+            }
+
+            .rightSection {
+                width: 80%;
+                margin-bottom: 30px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            /* Simplified for demo; usually you'd add a burger menu */
+        }
+
+        /* Container to define the shape (e.g., a 16:9 or 4:3 ratio) */
+        .project-img-container {
+            width: 100%;
+            height: 200px;
+            /* Adjust this to change how tall your project previews are */
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: #0a0a2a;
+            /* Fallback color while image loads */
+        }
+
+        .project-img-container img {
+            width: 100%;
+            height: 100%;
+            /* This is the magic property: it crops the image to fill the box without stretching */
+            object-fit: cover;
+            /* This centers the crop so the middle of your screenshot is visible */
+            object-position: top center;
+            transition: transform 0.3s ease;
+        }
+
+        /* Optional: Zoom effect on hover */
+        .project-card:hover .project-img-container img {
+            transform: scale(1);
+        }
+
+        /* Remove default link styling */
+        .project-link {
+            text-decoration: none;
+            color: inherit;
+            /* Keeps the text white/gray as you defined it */
+            display: block;
+            /* Makes the entire area of the link match the card */
+        }
+
+        .project-card {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Add a nice glow when hovering over the clickable card */
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+            border-color: var(--accent-purple);
+        }
+
+        .project-img-container {
+            position: relative;
+            /* Required for the overlay position */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(138, 43, 226, 0.7);
+            /* Purple tint */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Jaffery's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Experience</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                Hi, I'm <span class="purple">Mahdi Jaffery</span>
+                <div>I am a dedicated</div>
+                <span class="works purple"></span>
+                <div>
+                    <button class="btn">Download Resume</button>
+                    <a href="https://github.com/MahdiJaffery" target="_blank"><button class="btn">Visit
+                            Github</button></a>
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="developer.png" alt="Mahdi Jaffery">
+            </div>
+        </section>
+
+        <section class="secondSection">
+            <span class="text-gray">My Journey</span>
+            <h1>Work Experience</h1>
+
+            <div class="experience-grid">
+                <div class="exp-card">
+                    <img src="cpp.png" alt="C++">
+                    <h3>C++ Developer Intern</h3>
+                    <p>@CodSoft | June 2024<br>Focused on systems programming and algorithmic optimization using modern
+                        C++ standards.</p>
+                </div>
+                <div class="exp-card">
+                    <img src="node.png" alt="Node">
+                    <h3>Back End Intern</h3>
+                    <p>@Maqsood Labs | Jun 2024 - Aug 2024<br>Developed scalable RESTful APIs and managed database
+                        architectures
+                        for high-traffic apps.</p>
+                </div>
+                <div class="exp-card">
+                    <img src="pgsql.png" alt="DB">
+                    <h3>Lead Back End Dev</h3>
+                    <p>@MultiDexters | 2024-25<br>Leading the server-side team to implement secure, robust cloud
+                        infrastructure.</p>
+                </div>
+                <div class="exp-card">
+                    <img src="py.png" alt="AI">
+                    <h3>Agentic AI Intern</h3>
+                    <p>@SiRiiL | Jun 2025 - Sep 2025<br>Researching and building autonomous AI agents and LLM-powered
+                        workflows.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="thirdSection">
+            <h1>Featured Projects</h1>
+            <div class="project-container">
+                <a href="https://campusplus.live" target="_blank" class="project-link">
+                    <div class="project-card">
+                        <h3>Campus Plus</h3>
+                        <div class="project-img-container">
+                            <img src="CampusPlus.png" alt="CampusPlus">
+                        </div>
+                        <p class="text-gray">Learning Management System</p>
+                    </div>
+                </a>
+                <a href="https://snacktime-omega.vercel.app/" target="_blank" class="project-link">
+                    <div class="project-card">
+                        <h3>SnackTime</h3>
+                        <div class="project-img-container">
+                            <img src="SnackTime.png" alt="SnackTime">
+                        </div>
+                        <p class="text-gray">Food Delivery</p>
+                    </div>
+                </a>
+                <div class="project-card">
+                    <h3>HireX</h3>
+                    <p class="text-gray">AI Recruitment Platform</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Jaffery's Portfolio</h3>
+                <p style="color:gray; font-size: 0.8rem; margin-top:10px;">Building the future with code.</p>
+            </div>
+            <div>
+                <ul>
+                    <li><strong>Links</strong></li>
+                    <li>Home</li>
+                    <li>Projects</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><strong>Social</strong></li>
+                    <li>GitHub</li>
+                    <li>LinkedIn</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-rights">
+            &copy; 2025 Mahdi Jaffery | Built with Passion
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('.works', {
+            strings: ['Web Developer', 'AI/ML Engineer', 'Full Stack Developer'],
+            typeSpeed: 40,
+            backSpeed: 20,
+            loop: true
+        });
+    </script>
+</body>
+
+</html>
